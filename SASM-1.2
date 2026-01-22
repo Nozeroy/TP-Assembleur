@@ -1,0 +1,18 @@
+.data
+
+nombre: .int -42
+
+
+
+.text
+.global main
+main:
+    movl %esp, %ebp #for correct debugging
+    # write your code here
+    movl nombre, %eax
+    if : 
+        cmpl $0, %eax
+        jb end_if
+        negl %eax
+    end_if :
+        ret

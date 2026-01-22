@@ -1,0 +1,52 @@
+.data
+
+a:  .int 225
+b:  .int 367
+c:  .int 123
+
+.text
+.global main
+main:
+    movl %esp, %ebp #for correct debugging
+    # write your code here
+    movl a, %ebx
+    movl b, %ecx
+    movl c, %edx
+    
+    cmpl %ebx, %ecx
+    jb comp_b
+    jmp comp_c
+    
+comp_b:
+
+    cmpl %ebx, %edx
+    jb max_b
+    jmp max_d
+    
+comp_c:
+
+    cmpl %ecx, %edx
+    jb max_c
+    jmp max_d
+    
+    
+max_b:
+    movl %ebx, %eax
+    xorl %ebx, %ebx
+    xorl %ecx, %ecx
+    xorl %edx, %edx
+    ret
+    
+max_c:
+    movl %ecx, %eax
+    xorl %ebx, %ebx
+    xorl %ecx, %ecx
+    xorl %edx, %edx
+    ret
+    
+max_d:
+    movl %edx, %eax
+    xorl %ebx, %ebx
+    xorl %ecx, %ecx
+    xorl %edx, %edx
+    ret

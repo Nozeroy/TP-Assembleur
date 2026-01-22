@@ -1,0 +1,27 @@
+.data
+
+x:  .int 40
+y:  .int 23
+
+
+.text
+.global main
+main:
+    movl %esp, %ebp #for correct debugging
+    # write your code here
+    movl x, %ebx
+    movl y, %ecx
+    
+    if :
+        cmpl %ebx, %ecx
+        ja else
+        movl %ebx, %eax
+        jmp end_if
+        
+    else :
+        movl %ecx, %eax
+        
+    end_if :
+        xorl  %ebx, %ebx
+        xorl  %ecx, %ecx
+        ret

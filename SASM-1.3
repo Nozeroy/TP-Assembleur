@@ -1,0 +1,14 @@
+.data 
+
+x:  .int 17
+
+
+
+.text
+.global main
+main:
+    movl %esp, %ebp #for correct debugging
+    # write your code here
+    movl x, %eax
+    andl $1, %eax
+    ret
