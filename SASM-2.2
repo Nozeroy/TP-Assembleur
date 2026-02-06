@@ -1,0 +1,28 @@
+.data
+
+a:  .int 7
+b:  .int 0
+
+.text
+.global main
+main:
+    movl %esp, %ebp #for correct debugging
+    # write your code here
+    xorl  %eax, %eax
+    movl a, %ecx
+    movl a, %edx
+    movl b, %eax
+    jmp Boucle
+    
+Boucle:
+    sub $1, %ecx
+    cmpl %eax, %ecx
+    je End
+    imul %ecx, %edx
+    jmp Boucle
+    
+End:
+    movl %edx, %eax
+    xorl %edx, %edx
+    xorl %ecx, %ecx
+    ret
